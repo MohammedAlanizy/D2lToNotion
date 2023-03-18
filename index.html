@@ -1,7 +1,45 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <!-- saved from url=(0040)https://form.jotform.com/230766730030145 -->
 <html lang="en-US" class="supernova"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
+  <style>
+    .tooltip {
+      position: relative;
+      display: inline-block;
+    }
+    
+    .tooltip .tooltiptext {
+      visibility: hidden;
+      width: 140px;
+      background-color: #555;
+      color: #fff;
+      text-align: center;
+      border-radius: 6px;
+      padding: 5px;
+      position: absolute;
+      z-index: 1;
+      bottom: 150%;
+      left: 50%;
+      margin-left: -75px;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    
+    .tooltip .tooltiptext::after {
+      content: "";
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      margin-left: -5px;
+      border-width: 5px;
+      border-style: solid;
+      border-color: #555 transparent transparent transparent;
+    }
+    
+    .tooltip:hover .tooltiptext {
+      visibility: visible;
+      opacity: 1;
+    }
+    </style>
 <link rel="alternate" type="application/json+oembed" href="https://www.jotform.com/oembed/?format=json&amp;url=https%3A%2F%2Fform.jotform.com%2F230766730030145" title="oEmbed Form">
 <link rel="alternate" type="text/xml+oembed" href="https://www.jotform.com/oembed/?format=xml&amp;url=https%3A%2F%2Fform.jotform.com%2F230766730030145" title="oEmbed Form">
 <meta property="og:title" content="Car Race Registration Form">
@@ -62,7 +100,10 @@ JotForm.paymentExtrasOnTheFly([null,null,null,null,null,null,null,null,null,null
       </li>
       <li class="form-line" data-type="control_checkbox" id="id_29"><label class="form-label form-label-top form-label-auto" id="label_29" for="input_29"> Copy this code and type it in the terminal to complete the authentication </label>
         <div id="cid_29" class="form-input-wide" data-layout="full">
-          <div class="form-single-column" role="group" aria-labelledby="label_29" data-component="checkbox"><span class="form-checkbox-item" style="clear:left"><span class="dragger-item"></span><input type="checkbox" aria-describedby="label_29" class="form-checkbox" id="input_29_0" name="q29_copyThis[]" value="Type option 1"><label id="label_input_29_0" for="input_29_0">Type option 1</label></span></div>
+          <div class="form-single-column" role="group" aria-labelledby="label_29" data-component="checkbox"><span class="form-checkbox-item" style="clear:left"><span class="dragger-item"></span><input type="checkbox" aria-describedby="label_29" onclick="myFunction()" class="form-checkbox" id="input_29_0" name="q29_copyThis[]" value="Type option 1">
+            <label id="label_input_29_0" for="input_29_0">Type option 1</label>
+            <span class="tooltiptext" id="myTooltip">Copy to clipboard</span>
+          </span></div>
         </div>
       </li>
       <li style="display:none">Should be Empty: <input type="text" name="website" value=""></li>
@@ -81,7 +122,22 @@ JotForm.paymentExtrasOnTheFly([null,null,null,null,null,null,null,null,null,null
       all_spc[i].value = "230766730030145-230766730030145";
     }
   </script>
-
+<script>
+  function myFunction() {
+    var copyText = document.getElementById("myInput");
+    copyText.select();
+    copyText.setSelectionRange(0, 99999);
+    navigator.clipboard.writeText(copyText.value);
+    
+    var tooltip = document.getElementById("myTooltip");
+    tooltip.innerHTML = "Copied: " + copyText.value;
+  }
+  
+  function outFunc() {
+    var tooltip = document.getElementById("myTooltip");
+    tooltip.innerHTML = "Copy to clipboard";
+  }
+  </script>
 <script>
   const queryString = window.location.search;
   const urlParams = new URLSearchParams(queryString);
